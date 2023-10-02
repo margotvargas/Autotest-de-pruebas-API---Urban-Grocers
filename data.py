@@ -15,4 +15,3 @@ kit_body = {
     "prueba8": {},
     "prueba9": {"name": 123},
     }
-
