@@ -72,3 +72,4 @@ def test_create_kit_name_parameter_diferent_letter_result_400():
     assert respuesta.status_code == 400
     assert respuesta_json['name'] == data.kit_body['prueba9']['name']
     print(respuesta_json)
+

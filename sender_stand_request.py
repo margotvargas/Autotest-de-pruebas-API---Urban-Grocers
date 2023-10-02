@@ -30,7 +30,3 @@ def post_new_client_kit(name):
                              )
 
     return respuesta
-
-
-
-
