@@ -2,26 +2,19 @@ import requests
 import configuration
 import data
 
-def obtener_token(): #Función para crear el usuario y obtener el token
-    ##1. Haremos la petición al servidor y la respuesta nos la mostrara en respuesta_token_usuario (de data y configuration)
+def get_new_user_token(): #Función para crear el usuario y obtener el token
+
+    ##1. Haremos la petición al servidor (URL) y a las APIS del archivo configuration, asi como los datos para la creación del nuevo usuario del archivo data
     respuesta = requests.post(configuration.URL_SERVIDOR + configuration.USER_ENDPOINT,
                               json=data.usuario_nuevo)
-    ##print(respuesta_token_usuario) #Aqui muestra la respuesta general del 201
 
-    ##2. Al ya obtener la respuesta del 201, extraemos el token de json
+    ##2. Al ya obtener la respuesta del general, solo extraemos el token completo de json
     respuesta_json=respuesta.json()
-    #print(respuesta_json) #Esta es la respuesta del JSON muestra el authToken completo pero solo queremos el alfanumérico
-
-    ##3. Aqui extraemos solo el alfanumérico con las [] del diccionario y le asignamos una variable auth_token e imprimimos para comprobar
-    #auth_token = respuesta_json['authToken']
-    #print(auth_token)
-
-    ##4. Lo convertimos a funcion y la llamamos
-    # con return
+    ##3. Aqui extraemos solo el alfanumérico con las [] del diccionario y le asignamos una variable
     return respuesta_json['authToken']
 
-auth_token = obtener_token()#ya tenemos el token pero lo necesitamos en el formato bearer
-# como lo indica en la documentacion de la API para la creacion del kit
+auth_token = get_new_user_token()
+#4 Obtuvimos el token pero lo necesitamos en el formato del encabezado incluyendo bearer, como lo indica en la documentación de la API para la creacion del kit.
 authorization = {
     "Content-Type": "application/json",
     "Authorization": f'Bearer {auth_token}'
@@ -38,11 +31,9 @@ def post_new_client_kit(name):
 
     return respuesta
 
-
-def imprimir_resultado_post_kit(name):
-    resultado = post_new_client_kit(name)
-
-    print("Estado de la solicitud:", resultado.status_code)
+#def imprimir_resultado_post_kit(name):
+#    result = post_new_client_kit(name)
+#    print("Estado de la solicitud:", result.status_code)
 
 
 

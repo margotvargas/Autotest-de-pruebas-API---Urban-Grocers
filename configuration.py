@@ -1,4 +1,4 @@
-URL_SERVIDOR = "https://b7e9793b-75e3-4ae7-a37f-dc6d981905c8.serverhub.tripleten-services.com"
+URL_SERVIDOR = "https://4718b0ba-a340-4205-8ecb-520c68b7889f.serverhub.tripleten-services.com"
 USER_ENDPOINT = '/api/v1/users'
 KIT_ENDPOINT = '/api/v1/kits'
 
