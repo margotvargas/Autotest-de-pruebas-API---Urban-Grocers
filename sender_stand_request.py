@@ -2,12 +2,28 @@ import requests
 import configuration
 import data
 
+<<<<<<< HEAD
 def get_new_user_token():
     respuesta = requests.post(configuration.URL_SERVIDOR + configuration.USER_ENDPOINT, json=data.usuario_nuevo)
     respuesta_json=respuesta.json()
     return respuesta_json['authToken']
 
 auth_token = get_new_user_token()
+=======
+def get_new_user_token(): #Función para crear el usuario y obtener el token
+
+    ##1. Haremos la petición al servidor (URL) y a las APIS del archivo configuration, asi como los datos para la creación del nuevo usuario del archivo data
+    respuesta = requests.post(configuration.URL_SERVIDOR + configuration.USER_ENDPOINT,
+                              json=data.usuario_nuevo)
+
+    ##2. Al ya obtener la respuesta del general, solo extraemos el token completo de json
+    respuesta_json=respuesta.json()
+    ##3. Aqui extraemos solo el alfanumérico con las [] del diccionario y le asignamos una variable
+    return respuesta_json['authToken']
+
+auth_token = get_new_user_token()
+#4 Obtuvimos el token pero lo necesitamos en el formato del encabezado incluyendo bearer, como lo indica en la documentación de la API para la creacion del kit.
+>>>>>>> origin/develop
 authorization = {
     "Content-Type": "application/json",
     "Authorization": f'Bearer {auth_token}'
@@ -20,7 +36,10 @@ def post_new_client_kit(name):
                              headers=authorization
                              )
     return respuesta
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/develop
