@@ -31,9 +31,6 @@ def post_new_client_kit(name):
 
     return respuesta
 
-#def imprimir_resultado_post_kit(name):
-#    result = post_new_client_kit(name)
-#    print("Estado de la solicitud:", result.status_code)
 
 
 

@@ -7,7 +7,7 @@ def test_create_kit_name_1_letter_result_201(): #Realizamos una peticion a la AP
     respuesta_json = respuesta.json() #Obtenemos la respuesta y la filtramos para obtener el nombre y el status code
     assert respuesta.status_code == 201 #Realizamos un assert para comprobar el resultado esperado sea igual al 201
     assert respuesta_json['name'] == data.kit_body['prueba1']['name'] #por eso obtenemos el json entramos a name y la comparamos con la prueba1
-    print(respuesta_json)
+    print(respuesta_json) #Imprimimos la respuesta en formato Json
 
 #PRUEBA 2
 def test_create_kit_name_511_letter_result_201():
