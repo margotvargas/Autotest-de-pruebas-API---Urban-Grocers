@@ -1,7 +1,6 @@
 import data
 import sender_stand_request
 
-
 #PRUEBA 1: Crear un kit con longitud mínima de 1 caracter.
 def test_create_kit_name_1_letter_result_201():
     #1. Llama a la API con la función para crear un kit "post_new_client_kit" definida en el archivo sender_stand_request.py
@@ -101,3 +100,5 @@ def test_create_kit_name_parameter_diferent_letter_result_400():
     respuesta = sender_stand_request.post_new_client_kit(data.kit_body['prueba9'])
     # 2. Verifica que el status code de la variable respuesta sea igual a 400.
     assert respuesta.status_code == 400
+
+

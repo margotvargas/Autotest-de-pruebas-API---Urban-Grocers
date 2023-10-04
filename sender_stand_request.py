@@ -19,7 +19,9 @@ authorization = {
 }
 print(authorization) #6. Imprimimos la creación del usuario con el token incluyendole el string "Bearer".
 
-def post_new_client_kit(name): #Funcion para crear el kit con el token del usuario.
+
+#Funcion para crear el kit con el token del usuario.
+def post_new_client_kit(name):
     #Se realiza una solicitud POST a la URL del servidor más la ruta del kit (/api/v1/kits) utilizando la biblioteca requests.
     #Se incluyen encabezados de autorización en la solicitud, que se obtienen al enviar una solicitud POST para crear un nuevo usuario y extrayendo el token de autenticación.
     respuesta= requests.post(configuration.URL_SERVIDOR + configuration.KIT_ENDPOINT,
